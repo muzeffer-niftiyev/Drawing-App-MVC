@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="board">
+            <canvas class="canvas"></canvas>
+        </div>
+
+        <div class="tools">
+            <div class="colors">
+                
+                <div>
+                    <div class="red color"></div>
+                    <div class="blue color"></div>
+                    <div class="orange color"></div>
+                    <div class="black color active"></div>
+                    <div class="brown color"></div>
+                    <div class="green color"></div>
+                    <div class="aqua color"></div>
+                    <div class="violet color"></div>
+                    <div class="lightgreen color"></div>
+                    <div class="gold color"></div>
+                </div>
+
+                <div>
+                    <div class="green_2 color"></div>
+                    <div class="gray color"></div>
+                    <div class="deeppink color"></div>
+                    <div class="bisque color"></div>
+                    <div class="dodgerblue color"></div>
+                    <div class="pink color"></div>
+                    <div class="indigo color"></div>
+                    <div class="coral color"></div>
+                    <div class="khaki color"></div>
+                    <div class="yellow color"></div>
+                </div>
+            </div>
+
+            <input type="color" class="color_picker">
+
+            <div class="btns">
+                <button class="delete"><i class="far fa-trash-alt fa-2x"></i></button>
+                <button class="erase"><i class="fas fa-eraser fa-2x"></i></button>
+            </div>
+
+            <div class="boldness">
+                <input type="range" min="1" max="100" value="1" step="1">
+                <p>1</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
