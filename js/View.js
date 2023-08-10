@@ -1,14 +1,25 @@
 export default class View {
   constructor() {
     this.canvas = document.querySelector(".canvas");
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight - 144;
     this.board = this.canvas.getContext("2d");
+    this.eachColor = document.querySelectorAll('.color');
     this.colorsContainer = document.querySelector(".colors");
     this.colorPicker = document.querySelector(".color_picker");
     this.clearPageBtn = document.querySelector(".delete");
     this.eraserBtn = document.querySelector(".erase");
     this.boldnessInput = document.querySelector(".boldness input");
     this.boldnessNumber = document.querySelector(".boldness p");
+  }
 
+  removeColorActiveClass() {
+    this.eachColor.forEach(color => {
+      color.classList.remove('active');
+    }) 
+  }
+
+  listenForColorClicks(callback) {
     this.colorsContainer.addEventListener("click", function (e) {
       if (!e.target.classList.contains("color")) return;
 
@@ -18,13 +29,25 @@ export default class View {
         .forEach((color) => {
           color.classList.remove("active");
         });
-
       e.target.classList.add("active");
+
+      const colorValue = e.target.dataset.color;
+      callback(colorValue);
     });
   }
 
-  get boldnessInputData() {
-    return this.boldnessInput;
+  listenClearPageClick(callback) {
+    this.clearPageBtn.addEventListener('click', callback);
+  }
+
+  listenEraserClick(callback) {
+    this.eraserBtn.addEventListener('click', callback);
+  }
+
+  listenColorPickerSelection(callback) {
+    this.colorPicker.addEventListener('change', () => {
+      callback(this.colorPicker.value);
+    })
   }
 
   get canvasEl() {

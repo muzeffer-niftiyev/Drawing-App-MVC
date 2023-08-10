@@ -1,6 +1,6 @@
 export default class Model {
   constructor() {
-    this.color = "black";
+    this.color = "#111";
     this.boldness = 1;
     this.isDrawing = false;
     this.prevX = 0;
@@ -12,16 +12,14 @@ export default class Model {
     return this.boldness;
   }
 
-  startDrawing(e, board) {
-    this.isDrawing = true;
-    this.prevX = e.offsetX - board.getBoundingClientRect().left;
-    this.prevY = e.offsetY - board.getBoundingClientRect().top;
+  setColor(color) {
+    this.color = color;
+  }
 
-    board.beginPath();
-    board.strokeStyle = this.color;
-    board.fillStyle = this.color;
-    board.lineWidth = this.boldness;
-    board.moveTo(this.prevX, this.prevY);
+  startDrawing(e) {
+    this.isDrawing = true;
+    this.prevX = e.offsetX;
+    this.prevY = e.offsetY;
   }
 
   finishDrawing() {
@@ -31,14 +29,23 @@ export default class Model {
   drawing(e, board) {
     if (!this.isDrawing) return;
 
-    const currentX = e.offsetX;
-    const currentY = e.offsetY;
-    console.log(board);
+    let curX = e.offsetX;
+    let curY = e.offsetY;
 
-    board.lineTo(currentX, currentY);
+    board.beginPath();
+    board.moveTo(this.prevX, this.prevY);
+    board.lineTo(curX, curY);
+    board.strokeStyle = this.color;
+    board.lineWidth = this.boldness;
+    board.lineCap = "round";
     board.stroke();
+    board.closePath();
 
-    this.prevX = e.offsetX;
-    this.prevY = e.offsetY;
+    this.prevX = curX;
+    this.prevY = curY;
+  }
+
+  clearPage(board, canvas) {
+    board.clearRect(0, 0, canvas.width, canvas.height);
   }
 }

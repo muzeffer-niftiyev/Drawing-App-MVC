@@ -6,9 +6,21 @@ export default class Controller {
 
   init() {
     this.changeBoldness();
+    this.viewEventListeners();    
+  }
 
+  changeBoldness() {
+    this.view.listenBoldnessInputChange(() => {
+      const boldnessInputValue = this.view.boldnessInputValue;
+
+      this.model.changeLineBoldness(boldnessInputValue);
+      this.view.setBoldnessInputNum(boldnessInputValue);
+    });
+  }
+
+  viewEventListeners() {
     this.view.listenMouseDown((e) => {
-      this.model.startDrawing(e, this.view.boardEl);
+      this.model.startDrawing(e);
     });
 
     this.view.listenMouseUp(() => {
@@ -18,14 +30,22 @@ export default class Controller {
     this.view.listenMouseMove((e) => {
       this.model.drawing(e, this.view.boardEl);
     });
-  }
 
-  changeBoldness() {
-    this.view.listenBoldnessInputChange(() => {
-      const boldnessInputValue = this.view.boldnessInputValue;
+    this.view.listenForColorClicks((color) => {
+      this.model.setColor(color);
+    });
 
-      this.model.changeLineBoldness(boldnessInputValue);
-      this.view.setBoldnessInputNum(boldnessInputValue);
+    this.view.listenColorPickerSelection((color) => {
+      this.model.setColor(color);
+    });
+
+    this.view.listenClearPageClick(() => {
+      this.model.clearPage(this.view.boardEl, this.view.canvasEl);
+    });
+
+    this.view.listenEraserClick(() => {
+      this.model.setColor("#fff");
+      this.view.removeColorActiveClass();
     });
   }
 }
