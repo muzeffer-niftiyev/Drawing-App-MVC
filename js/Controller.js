@@ -6,7 +6,7 @@ export default class Controller {
 
   init() {
     this.changeBoldness();
-    this.viewEventListeners();    
+    this.viewEventListeners();
   }
 
   changeBoldness() {

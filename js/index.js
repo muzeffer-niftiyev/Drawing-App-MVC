@@ -1,6 +1,7 @@
 import View from "./View.js";
 import Controller from "./Controller.js";
 import Model from "./Model.js";
+import "../css/style.scss";
 
 window.addEventListener('DOMContentLoaded', function() {
     const model = new Model();
