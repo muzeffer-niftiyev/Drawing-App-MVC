@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <div class="app">
+        <canvas class="canvas"></canvas>
+
+        <div class="tools">
+            <div class="colors">
+                <div>
+                    <div class="red color" data-color="red"></div>
+                    <div class="blue color" data-color="rgb(17, 17, 196)"></div>
+                    <div class="orange color" data-color="orange"></div>
+                    <div class="black color active" data-color="black"></div>
+                    <div class="brown color" data-color="brown"></div>
+                    <div class="green color" data-color="rgb(22, 228, 22)"></div>
+                    <div class="aqua color" data-color="rgba(0, 255, 255, 0.664)"></div>
+                    <div class="violet color" data-color="violet"></div>
+                    <div class="lightgreen color" data-color="lightgreen"></div>
+                    <div class="gold color" data-color="orangered"></div>
+                </div>
+
+                <div>
+                    <div class="green_2 color" data-color="#18bc9c"></div>
+                    <div class="gray color" data-color="#6c757d"></div>
+                    <div class="deeppink color" data-color="deeppink"></div>
+                    <div class="bisque color" data-color="bisque"></div>
+                    <div class="dodgerblue color" data-color="dodgerblue"></div>
+                    <div class="pink color" data-color="palevioletred"></div>
+                    <div class="indigo color" data-color="indigo"></div>
+                    <div class="coral color" data-color="coral"></div>
+                    <div class="khaki color" data-color="khaki"></div>
+                    <div class="yellow color" data-color="yellow"></div>
+                </div>
+            </div>
+
+            <input type="color" class="color_picker">
+
+            <div class="btns">
+                <button class="delete"><i class="far fa-trash-alt fa-2x"></i></button>
+                <button class="erase"><i class="fas fa-eraser fa-2x"></i></button>
+            </div>
+
+            <div class="boldness">
+                <input type="range" min="1" max="100" value="1" step="1">
+                <p>1</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
