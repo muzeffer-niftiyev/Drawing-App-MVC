@@ -1,9 +1,5 @@
 {
-  "builds": [{ "src": "npm run build", "use": "@now/static-build" }],
-  "routes": [
-    { "src": "/static/(.*)", "dest": "/static/$1" },
-    { "src": "/favicon.ico", "dest": "/favicon.ico" },
-    { "src": "/robots.txt", "dest": "/robots.txt" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
+  "version": 2,
+  "builds": [{ "src": "npm start", "use": "@vercel/node" }],
+  "routes": [{ "handle": "filesystem" }]
 }
