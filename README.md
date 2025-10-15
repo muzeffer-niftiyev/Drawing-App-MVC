@@ -43,7 +43,7 @@ git clone git@github.com:muzeffer-niftiyev/Drawing-App-MVC.git
 
 2. **Install Dependencies**
    
-   Run this command at terminat of the project.
+   Run this command at terminal of the project.
 
 ```bash
     npm install
